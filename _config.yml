@@ -1,0 +1,48 @@
+title: PT Centella Global Corp
+description: Multilingual Solutions. Global Impact.
+baseurl: ""
+url: https://centella-global.com
+
+theme: cvless
+
+# site settings
+taglong: Multilingual Data Services Provider
+tagshort: Global Multilingual Solutions
+
+# author settings
+author:
+  name: PT Centella Global Corp
+  email: centella.global@gmail.com
+photo: assets/files/centella.jpeg
+joblines:
+  - Translation & Localization Services
+  - Content & Data Solutions
+  - Serving Global Markets
+address: Jalan Bhayangkara, BTN Pinang Merah, Block C8 No.10, RT007, Pasir Panjang, Arut Selatan District, Kotawaringin Barat Regency, Central Kalimantan – Indonesia
+phone: +62 812-8800-4014
+
+# profile links
+profile:
+  email: centella.global@gmail.com
+  phone: +62 822-5453-6964
+  linkedin: https://www.linkedin.com/company/centella-global
+  cv: false
+
+# build settings
+permalink: pretty
+exclude:
+  - LICENSE
+  - README.md
+  - Gemfile
+  - vendor/
+
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate-v2
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  sourcemap: never
+  
