@@ -11,8 +11,4 @@ type: register
 
 **Email:** centella.global@gmail.com
 
-**NIB:** 1108250129535
-
-**NPWP:** 1000000004903107
-
 **President Director:** Wahyu Wulandari

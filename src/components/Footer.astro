@@ -16,30 +16,30 @@ const ftLink = isHome
     <ul class="list-none">
       {siteData.social.map((scm) => (
         <li>
-          <a class="text-gray-800 hover:text-purple-600 no-underline" href={scm.url} target="_blank" rel="_noopener">{scm.title}</a>
+          <a class="text-gray-800 no-underline" href={scm.url} target="_blank" rel="_noopener" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">{scm.title}</a>
         </li>
       ))}
     </ul>
   </div>
-  <div class="h-px sm:h-auto w-1/2 sm:w-px bg-purple-600 mx-auto sm:mx-0"></div>
+  <div class="h-px sm:h-auto w-1/2 sm:w-px mx-auto sm:mx-0" style="background-color: #f9ae19;"></div>
   <div class="text-center px-8 py-4">
     <ul class="list-none">
       <li>
-        <a class="text-gray-800 hover:text-purple-600 no-underline" href={abtLink}>About</a>
+        <a class="text-gray-800 no-underline" href={abtLink} style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">About</a>
       </li>
       <li>
-        <a class="text-gray-800 hover:text-purple-600 no-underline" href={ftLink}>Features</a>
+        <a class="text-gray-800 no-underline" href={ftLink} style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">Features</a>
       </li>
     </ul>
   </div>
-  <div class="h-px sm:h-auto w-1/2 sm:w-px bg-purple-600 mx-auto sm:mx-0"></div>
+  <div class="h-px sm:h-auto w-1/2 sm:w-px mx-auto sm:mx-0" style="background-color: #f9ae19;"></div>
   <div class="text-center pl-0 sm:pl-8 py-4">
     <ul class="list-none">
       <li>
-        <a class="text-gray-800 hover:text-purple-600 no-underline" href={`${site}privacy`}>Privacy</a>
+        <a class="text-gray-800 no-underline" href={`${site}privacy`} style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">Privacy</a>
       </li>
       <li>
-        <a class="text-gray-800 hover:text-purple-600 no-underline" href={`${site}imprint`}>Imprint</a>
+        <a class="text-gray-800 no-underline" href={`${site}imprint`} style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">Imprint</a>
       </li>
     </ul>
   </div>
@@ -50,16 +50,11 @@ const ftLink = isHome
   </span>
 </div>
 <div class="">
-  <a id="btt" class="hidden fixed bottom-0 right-0 mb-4 mr-4 text-gray-200 border border-purple-600 hover:bg-gray-200 hover:text-purple-600 hover:border-browngray no-underline px-6 py-1 bg-purple-600 shadow-md" href="#top" title="Back to Top">UP</a>
-</div>
-<div class="fixed bottom-0 left-0 m-6">
-  <a href="https://github.com/ttntm/astro-landing-page" target="_blank" rel="noopener" title="Get this theme @ GitHub" class="block rounded-full bg-black text-purple-600 hover:bg-white hover:text-black shadow-md p-4">
-    <img src={`${site}img/github.svg`} width="30" height="30" class="block" alt="GitHub icon">
-  </a>
+  <a id="btt" class="hidden fixed bottom-0 right-0 mb-4 mr-4 text-gray-200 border hover:bg-gray-200 hover:border-browngray no-underline px-6 py-1 shadow-md" href="#top" title="Back to Top" style="border-color: #f9ae19; background-color: #f9ae19;" onmouseover="this.style.backgroundColor='transparent'; this.style.color='#f9ae19'" onmouseout="this.style.backgroundColor='#f9ae19'; this.style.color='#1f2937'">UP</a>
 </div>
 <!-- "Follow" Tooltip template -->
 <template id="followTip">
   {siteData.social.map((scm) => (
-    <a href={scm.url} class="inline-block text-gray-200 text-sm bg-purple-600 shadow-md hover:bg-gray-200 hover:text-gray-800 no-underline p-1 px-4 mx-2 my-1" target="_blank" rel="noopener">{scm.title}</a>
+    <a href={scm.url} class="inline-block text-gray-800 text-sm shadow-md hover:bg-gray-200 no-underline p-1 px-4 mx-2 my-1" style="background-color: #f9ae19;" target="_blank" rel="noopener">{scm.title}</a>
   ))}
 </template>
