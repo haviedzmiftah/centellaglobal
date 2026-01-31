@@ -1,9 +1,9 @@
 title: PT Centella Global Corp
 description: Multilingual Solutions. Global Impact.
-baseurl: ""
-url: https://centella-global.com
+baseurl: "/centellaglobal"
+url: https://haviedzmiftah.github.io/centellaglobal
 
-theme: cvless
+remote_theme: piazzai/cvless
 
 # site settings
 taglong: Multilingual Data Services Provider

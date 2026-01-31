@@ -1,8 +1,10 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3"
-gem "cvless"
+gem "github-pages", "~> 228", group: :jekyll_plugins
 
 group :jekyll_plugins do
-  gem "jekyll-paginate-v2", "~> 3.0"
+  gem "jekyll-paginate"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+  gem "jekyll-feed"
 end
