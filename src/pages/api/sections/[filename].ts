@@ -5,7 +5,28 @@ export const prerender = true
 
 export async function GET({ params }: any) {
   const { filename } = params
-  const filePath = path.join(process.cwd(), 'src', 'content', 'sections', `${filename}`)
+  
+  // Security: Validate filename to prevent path traversal
+  const allowedFiles = [
+    'about.md', 'about.id.md', 'about.tr.md',
+    'contact.md', 'contact.id.md', 'contact.tr.md',
+    'features.md', 'features.id.md', 'features.tr.md',
+    'header.md', 'header.id.md', 'header.tr.md',
+  ]
+  
+  if (!allowedFiles.includes(filename)) {
+    return new Response('Forbidden', { status: 403 })
+  }
+  
+  const filePath = path.join(process.cwd(), 'src', 'content', 'sections', filename)
+  
+  // Ensure resolved path is within the allowed directory
+  const resolvedPath = path.resolve(filePath)
+  const allowedDir = path.resolve(process.cwd(), 'src', 'content', 'sections')
+  
+  if (!resolvedPath.startsWith(allowedDir)) {
+    return new Response('Forbidden', { status: 403 })
+  }
   
   try {
     const content = readFileSync(filePath, 'utf-8')
@@ -13,11 +34,11 @@ export async function GET({ params }: any) {
       status: 200,
       headers: {
         'Content-Type': 'text/markdown; charset=utf-8',
-        'Cache-Control': 'public, max-age=3600'
+        'Cache-Control': 'public, max-age=3600',
+        'X-Content-Type-Options': 'nosniff',
       },
     })
   } catch (error) {
-    console.error(`File not found: ${filePath}`)
     return new Response('Not found', { status: 404 })
   }
 }

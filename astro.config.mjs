@@ -33,9 +33,30 @@ export default defineConfig({
   site: config.site,
   base: config.base,
   outDir: config.outDir,
+  // Security settings
+  vite: {
+    define: {
+      __DEV__: false,
+    },
+    server: {
+      headers: {
+        'X-Content-Type-Options': 'nosniff',
+        'X-Frame-Options': 'DENY',
+        'X-XSS-Protection': '1; mode=block',
+      },
+    },
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false,
     }),
   ],
+  // Output format
+  output: 'static',
+  // Image optimization
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
+  },
 })
