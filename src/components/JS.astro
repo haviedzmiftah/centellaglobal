@@ -4,8 +4,8 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <script is:inline src="https://unpkg.com/popper.js@1"></script>
 <script is:inline src="https://unpkg.com/tippy.js@4"></script>
-<script is:inline>
-  const BASE_URL = ${JSON.stringify(baseUrl)}
+<script is:inline define:vars={{ baseUrl }}>
+  const BASE_URL = baseUrl
   const API_BASE = BASE_URL === '/' ? '' : BASE_URL.replace(/\/$/, '')
 
   function navToggle() {
