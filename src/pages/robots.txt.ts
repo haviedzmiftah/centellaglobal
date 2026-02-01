@@ -1,7 +1,9 @@
+const SITE_URL = import.meta.env.SITE || 'http://localhost:4321'
+
 export const prerender = true
 
-export const GET = () => {
-  const sitemapUrl = new URL('sitemap.xml', Astro.site).toString()
+export const GET = async () => {
+  const sitemapUrl = new URL('sitemap.xml', SITE_URL).toString()
 
   const body = `User-agent: *
 Allow: /

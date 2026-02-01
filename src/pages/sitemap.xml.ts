@@ -1,9 +1,10 @@
-export const prerender = true
-
+const SITE_URL = import.meta.env.SITE || 'http://localhost:4321'
 const formatDate = (date: Date) => date.toISOString().split('T')[0]
 
-export const GET = () => {
-  const siteUrl = Astro.site ? new URL(Astro.site) : new URL('http://localhost:4321')
+export const prerender = true
+
+export const GET = async () => {
+  const siteUrl = new URL(SITE_URL)
   const lastmod = formatDate(new Date())
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
