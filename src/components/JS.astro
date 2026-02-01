@@ -171,14 +171,19 @@ const baseUrl = import.meta.env.BASE_URL;
             if (lines.length >= 2) {
               const firstLine = lines[0]
               const secondLine = lines.slice(1).join(' ')
-              contentDiv.innerHTML = `
-                <h1 class="tracking-wide text-2xl mb-6" style="color: #f9ae19;">
-                  ${firstLine}
-                </h1>
-                <h1 class="font-bold tracking-widest text-4xl">
-                  ${secondLine}
-                </h1>
-              `
+              
+              const h1_1 = document.createElement('h1')
+              h1_1.className = 'tracking-wide text-2xl mb-6'
+              h1_1.style.color = '#f9ae19'
+              h1_1.textContent = firstLine
+              
+              const h1_2 = document.createElement('h1')
+              h1_2.className = 'font-bold tracking-widest text-4xl'
+              h1_2.textContent = secondLine
+              
+              contentDiv.textContent = ''
+              contentDiv.appendChild(h1_1)
+              contentDiv.appendChild(h1_2)
             }
           } else {
             // Untuk section lainnya gunakan marked
@@ -198,31 +203,38 @@ const baseUrl = import.meta.env.BASE_URL;
     }
   }
 
-  // Initialize language buttons
-  const langButtons = Array.from(document.querySelectorAll('[data-lang]'))
-  if (langButtons.length) {
-    const stored = localStorage.getItem('lang')
-    const browser = (navigator.language || 'en').slice(0, 2)
-    const initial = stored || (['id', 'en', 'tr'].includes(browser) ? browser : 'en')
+  // Wait for marked library to load before initializing
+  function initializeLanguageSystem() {
+    const langButtons = Array.from(document.querySelectorAll('[data-lang]'))
+    if (langButtons.length) {
+      const stored = localStorage.getItem('lang')
+      const browser = (navigator.language || 'en').slice(0, 2)
+      const initial = stored || (['id', 'en', 'tr'].includes(browser) ? browser : 'en')
 
-    setLanguage(initial)
-    setLangActiveState(initial, langButtons)
-    
-    // Load content pada inisialisasi dengan delay untuk memastikan marked sudah loaded
-    setTimeout(() => {
+      setLanguage(initial)
+      setLangActiveState(initial, langButtons)
+      
+      // Load content after marked is guaranteed to be loaded
       loadMarkdownContent(initial)
       loadFeaturesContent(initial)
-    }, 500)
 
-    langButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const lang = btn.getAttribute('data-lang') || 'en'
-        setLanguage(lang)
-        setLangActiveState(lang, langButtons)
-        loadMarkdownContent(lang)
-        loadFeaturesContent(lang)
+      langButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang') || 'en'
+          setLanguage(lang)
+          setLangActiveState(lang, langButtons)
+          loadMarkdownContent(lang)
+          loadFeaturesContent(lang)
+        })
       })
-    })
+    }
+  }
+
+  // Initialize once marked is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeLanguageSystem)
+  } else {
+    initializeLanguageSystem()
   }
 </script>
 
