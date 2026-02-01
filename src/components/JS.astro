@@ -1,6 +1,13 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+---
+
 <script is:inline src="https://unpkg.com/popper.js@1"></script>
 <script is:inline src="https://unpkg.com/tippy.js@4"></script>
 <script is:inline>
+  const BASE_URL = ${JSON.stringify(baseUrl)}
+  const API_BASE = BASE_URL === '/' ? '' : BASE_URL.replace(/\/$/, '')
+
   function navToggle() {
     let btn = document.getElementById('menuBtn')
     let nav = document.getElementById('menu')
@@ -100,7 +107,7 @@
 
   async function loadFeaturesContent(lang) {
     try {
-      const response = await fetch(`/api/features/${lang}`)
+      const response = await fetch(`${API_BASE}/api/features/${lang}`)
       
       if (response.ok) {
         const features = await response.json()
@@ -146,7 +153,7 @@
         // Untuk bahasa EN, gunakan file default (tanpa suffix)
         // Untuk bahasa lain (ID, TR), gunakan file dengan suffix
         const filename = lang === 'en' ? `${sectionType}.md` : `${sectionType}.${lang}.md`
-        const fileUrl = `/api/sections/${filename}`
+        const fileUrl = `${API_BASE}/api/sections/${filename}`
         console.log(`Fetching: ${fileUrl}`)
         const response = await fetch(fileUrl)
         

@@ -1,6 +1,8 @@
 import { readFileSync } from 'fs'
 import path from 'path'
 
+export const prerender = true
+
 export async function GET({ params }: any) {
   const { lang } = params
   
