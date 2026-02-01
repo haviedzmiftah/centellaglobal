@@ -9,7 +9,6 @@ Proyek ini berasal dari template **astro-landing-page** oleh **ttntm** dan telah
 - Template asli: https://github.com/ttntm/astro-landing-page
 - Port dari: https://github.com/ttntm/11ty-landing-page dan https://github.com/ttntm/hugo-landing-page
 
-Kredit kepada pembuat asli tetap dipertahankan.
 
 ## Ringkasan Fitur
 
@@ -101,4 +100,4 @@ Script:
 
 ## Lisensi
 
-Mengikuti lisensi proyek asli (MIT). Kredit pembuat tetap dipertahankan.
+Mengikuti lisensi proyek asli (MIT).
