@@ -2,7 +2,7 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
 
 jobs:
   build-and-deploy:
@@ -23,9 +23,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Ensure .nojekyll in dist
+        run: |
+          if [ -f .nojekyll ]; then cp .nojekyll ./dist/.nojekyll; else echo ".nojekyll not found in repo root"; fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
+          allow_empty_commit: true
