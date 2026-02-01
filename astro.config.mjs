@@ -1,37 +1,39 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 
+// default (local dev)
 const build = {
-  baseURL: '/',
-  outDir: './dist',
-  siteURL: 'http://localhost:4321/'
+  base: '/',
+  outDir: 'dist',
+  site: 'http://localhost:4321',
 }
 
+// ENV
 const env = process.env.NODE_ENV
 
 switch (env) {
   case 'pages':
-    build.baseURL = '/centellaglobal/'
-    build.outDir = './dist'
-    build.siteURL = 'https://haviedzmiftah.github.io/centellaglobal/'
+    build.base = '/centellaglobal/'
+    build.site = 'https://haviedzmiftah.github.io'
     break
 
   case 'production':
-    build.siteURL = 'https://centella-global.com/'
+    build.base = '/'
+    build.site = 'https://centella-global.com'
     break
 
   default:
+    // development
     break
 }
 
-// https://astro.build/config
 export default defineConfig({
-  site: build.siteURL,
-  base: build.baseURL,
+  site: build.site,
+  base: build.base,
   outDir: build.outDir,
   integrations: [
     tailwind({
-      applyBaseStyles: false
-    })
-  ]
+      applyBaseStyles: false,
+    }),
+  ],
 })
