@@ -44,21 +44,30 @@
       'nav.about': 'Tentang',
       'nav.features': 'Layanan',
       'nav.follow': 'Ikuti',
-      'nav.contact': 'Hubungi'
+      'nav.contact': 'Hubungi',
+      'btn.moreInfo': 'Informasi Lebih Lanjut',
+      'btn.contactNow': 'Hubungi Sekarang',
+      'btn.seeHow': 'Lihat Cara Kerjanya'
     },
     en: {
       'nav.lang': 'Language',
       'nav.about': 'About',
       'nav.features': 'Features',
       'nav.follow': 'Follow',
-      'nav.contact': 'Contact Now'
+      'nav.contact': 'Contact Now',
+      'btn.moreInfo': 'More Information',
+      'btn.contactNow': 'Contact Now',
+      'btn.seeHow': 'See How it Works'
     },
     tr: {
       'nav.lang': 'Dil',
       'nav.about': 'Hakkımızda',
       'nav.features': 'Hizmetler',
       'nav.follow': 'Takip Et',
-      'nav.contact': 'İletişim'
+      'nav.contact': 'İletişim',
+      'btn.moreInfo': 'Daha Fazla Bilgi',
+      'btn.contactNow': 'İletişim Kur',
+      'btn.seeHow': 'Nasıl Çalıştığını Gör'
     }
   }
 
@@ -89,6 +98,100 @@
     applyTranslations(lang)
   }
 
+  async function loadFeaturesContent(lang) {
+    try {
+      const response = await fetch(`/api/features/${lang}`)
+      
+      if (response.ok) {
+        const features = await response.json()
+        console.log(`Loaded ${features.length} features for language: ${lang}`)
+        
+        // Update setiap feature item
+        features.forEach((feat, index) => {
+          const featureDiv = document.querySelector(`[data-feature-index="${index}"]`)
+          if (featureDiv) {
+            const titleEl = featureDiv.querySelector('[data-feature-title]')
+            const contentEl = featureDiv.querySelector('[data-feature-content]')
+            
+            if (titleEl) titleEl.textContent = feat.title
+            if (contentEl) contentEl.textContent = feat.content
+          }
+        })
+      }
+    } catch (error) {
+      console.error('Error loading features content:', error)
+    }
+  }
+
+  async function loadMarkdownContent(lang) {
+    try {
+      const sections = document.querySelectorAll('[data-section-type]')
+      console.log(`Loading markdown content for language: ${lang}`)
+      
+      for (const section of sections) {
+        const sectionType = section.getAttribute('data-section-type')
+        
+        // Skip features section karena akan di-handle oleh loadFeaturesContent
+        if (sectionType === 'features') {
+          continue
+        }
+        
+        const contentDiv = section.querySelector('[data-content]')
+        
+        if (!contentDiv) {
+          console.warn(`No content div found for section: ${sectionType}`)
+          continue
+        }
+        
+        // Untuk bahasa EN, gunakan file default (tanpa suffix)
+        // Untuk bahasa lain (ID, TR), gunakan file dengan suffix
+        const filename = lang === 'en' ? `${sectionType}.md` : `${sectionType}.${lang}.md`
+        const fileUrl = `/api/sections/${filename}`
+        console.log(`Fetching: ${fileUrl}`)
+        const response = await fetch(fileUrl)
+        
+        if (response.ok) {
+          const markdown = await response.text()
+          // Parse frontmatter - content setelah --- kedua
+          const parts = markdown.split('---')
+          const content = parts[2] ? parts[2].trim() : ''
+          
+          console.log(`Loaded content for ${sectionType}: ${content.substring(0, 50)}...`)
+          
+          // Khusus untuk header, format content sebagai dua heading
+          if (sectionType === 'header') {
+            const lines = content.split('\n').filter(line => line.trim())
+            if (lines.length >= 2) {
+              const firstLine = lines[0]
+              const secondLine = lines.slice(1).join(' ')
+              contentDiv.innerHTML = `
+                <h1 class="tracking-wide text-2xl mb-6" style="color: #f9ae19;">
+                  ${firstLine}
+                </h1>
+                <h1 class="font-bold tracking-widest text-4xl">
+                  ${secondLine}
+                </h1>
+              `
+            }
+          } else {
+            // Untuk section lainnya gunakan marked
+            if (window.marked) {
+              const htmlContent = marked.parse(content)
+              contentDiv.innerHTML = htmlContent
+            } else {
+              contentDiv.textContent = content
+            }
+          }
+        } else {
+          console.error(`Failed to fetch ${fileUrl}: ${response.status}`)
+        }
+      }
+    } catch (error) {
+      console.error('Error loading markdown content:', error)
+    }
+  }
+
+  // Initialize language buttons
   const langButtons = Array.from(document.querySelectorAll('[data-lang]'))
   if (langButtons.length) {
     const stored = localStorage.getItem('lang')
@@ -97,13 +200,23 @@
 
     setLanguage(initial)
     setLangActiveState(initial, langButtons)
+    
+    // Load content pada inisialisasi dengan delay untuk memastikan marked sudah loaded
+    setTimeout(() => {
+      loadMarkdownContent(initial)
+      loadFeaturesContent(initial)
+    }, 500)
 
     langButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang') || 'en'
         setLanguage(lang)
         setLangActiveState(lang, langButtons)
+        loadMarkdownContent(lang)
+        loadFeaturesContent(lang)
       })
     })
   }
 </script>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>

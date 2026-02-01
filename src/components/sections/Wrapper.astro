@@ -3,7 +3,20 @@ import { getCollection } from 'astro:content'
 import Header from './Header.astro'
 import SectionResolver from './SectionResolver.astro'
 
-const sections = await getCollection('sections')
+const allSections = await getCollection('sections')
+
+// Filter hanya file yang asli (tanpa suffix bahasa .id, .en, .tr)
+const sections = allSections.filter(sect => {
+  const filename = sect.id
+  // Exclude file yang memiliki pattern .{lang}.md
+  return !filename.match(/\.(id|en|tr)\.md$/)
+})
+
+// Sort sections agar tertampil dengan urutan yang konsisten
+sections.sort((a, b) => {
+  const order = ['header', 'about', 'features', 'contact']
+  return order.indexOf(a.data.type) - order.indexOf(b.data.type)
+})
 ---
 <Header />
 <main>
@@ -13,6 +26,7 @@ const sections = await getCollection('sections')
       title={sect.data.title}
       afterTitle={sect.data.afterTitle || ''}
       type={sect.data.type}
+      lang={sect.data.lang}
     />
   })}
 </main>

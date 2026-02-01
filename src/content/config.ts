@@ -7,7 +7,8 @@ const sectionsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     afterTitle: z.string().optional(),
-    type: z.string()
+    type: z.string(),
+    lang: z.string().optional()
   })
 })
 

@@ -1,22 +1,68 @@
-[
-  {
-    "title": "Language & Localization Services",
-    "icon": "icon1.svg",
-    "content": "We bridge communication gaps through comprehensive linguistic solutions, including precise translation and transcription that preserve your message's original intent. Beyond literal meaning, our localization and subtitling services adapt your content culturally and technically, ensuring it resonates deeply with global audiences and meets the specific demands of any local market."
-  },
-  {
-    "title": "Audio & Voice Services",
-    "icon": "icon2.svg",
-    "content": "Our audio suite provides end-to-end solutions for sound-based media, ranging from high-fidelity voice recording to polished voice-over production for diverse visual projects. We also specialize in audio transcription and annotation, converting spoken words into structured data while identifying key auditory elements to support both creative projects and technical analysis."
-  },
-  {
-    "title": "Content Services",
-    "icon": "icon3.svg",
-    "content": "We drive brand engagement through a full spectrum of creative content, from professional script writing to the production of high-impact text, visuals, and multimedia assets. To ensure maximum reach, we offer social media evaluation and full-scale management, optimizing your digital presence and maintaining a consistent, compelling voice across all social platforms."
-  },
-  {
-    "title": "Data Services & AI Support",
-    "icon": "icon4.svg",
-    "content": "We empower the future of technology by providing AI-ready data solutions and custom dataset creation tailored to specific client needs. Our expertise includes meticulous data labeling and annotation across video, audio, text, and image formats, complemented by professional proofreading and editing to ensure the highest standards of data integrity and linguistic accuracy."
-  }
-]
+{
+  "en": [
+    {
+      "title": "Language & Localization Services",
+      "icon": "icon1.svg",
+      "content": "We bridge communication gaps through comprehensive linguistic solutions, including precise translation and transcription that preserve your message's original intent. Beyond literal meaning, our localization and subtitling services adapt your content culturally and technically, ensuring it resonates deeply with global audiences and meets the specific demands of any local market."
+    },
+    {
+      "title": "Audio & Voice Services",
+      "icon": "icon2.svg",
+      "content": "Our audio suite provides end-to-end solutions for sound-based media, ranging from high-fidelity voice recording to polished voice-over production for diverse visual projects. We also specialize in audio transcription and annotation, converting spoken words into structured data while identifying key auditory elements to support both creative projects and technical analysis."
+    },
+    {
+      "title": "Content Services",
+      "icon": "icon3.svg",
+      "content": "We drive brand engagement through a full spectrum of creative content, from professional script writing to the production of high-impact text, visuals, and multimedia assets. To ensure maximum reach, we offer social media evaluation and full-scale management, optimizing your digital presence and maintaining a consistent, compelling voice across all social platforms."
+    },
+    {
+      "title": "Data Services & AI Support",
+      "icon": "icon4.svg",
+      "content": "We empower the future of technology by providing AI-ready data solutions and custom dataset creation tailored to specific client needs. Our expertise includes meticulous data labeling and annotation across video, audio, text, and image formats, complemented by professional proofreading and editing to ensure the highest standards of data integrity and linguistic accuracy."
+    }
+  ],
+  "id": [
+    {
+      "title": "Layanan Bahasa & Lokalisasi",
+      "icon": "icon1.svg",
+      "content": "Kami menjembatani kesenjangan komunikasi melalui solusi linguistik yang komprehensif, termasuk penerjemahan dan transkripsi yang presisi untuk mempertahankan maksud pesan asli Anda. Lebih dari sekadar makna harfiah, layanan lokalisasi dan subtitle kami mengadaptasi konten Anda secara budaya dan teknis, memastikan konten beresonansi dengan audiens global dan memenuhi permintaan spesifik dari pasar lokal mana pun."
+    },
+    {
+      "title": "Layanan Audio & Suara",
+      "icon": "icon2.svg",
+      "content": "Rangkaian audio kami menyediakan solusi end-to-end untuk media berbasis suara, mulai dari perekaman suara fidelitas tinggi hingga produksi voice-over yang dipoles untuk beragam proyek visual. Kami juga mengkhususkan diri dalam transkripsi dan anotasi audio, mengonversi kata-kata yang diucapkan menjadi data terstruktur sambil mengidentifikasi elemen auditori kunci untuk mendukung proyek kreatif maupun analisis teknis."
+    },
+    {
+      "title": "Layanan Konten",
+      "icon": "icon3.svg",
+      "content": "Kami mendorong keterlibatan merek melalui spektrum penuh konten kreatif, dari penulisan naskah profesional hingga produksi teks, visual, dan aset multimedia berdampak tinggi. Untuk memastikan jangkauan maksimal, kami menawarkan evaluasi media sosial dan manajemen skala penuh, mengoptimalkan kehadiran digital Anda dan mempertahankan suara yang konsisten dan menarik di semua platform sosial."
+    },
+    {
+      "title": "Layanan Data & Dukungan AI",
+      "icon": "icon4.svg",
+      "content": "Kami memberdayakan masa depan teknologi dengan menyediakan solusi data siap AI dan pembuatan dataset khusus yang disesuaikan dengan kebutuhan klien tertentu. Keahlian kami mencakup pelabelan dan anotasi data yang teliti di format video, audio, teks, dan gambar, dilengkapi dengan proofreading dan editing profesional untuk memastikan standar tertinggi integritas data dan akurasi linguistik."
+    }
+  ],
+  "tr": [
+    {
+      "title": "Dil & Yerelleştirme Hizmetleri",
+      "icon": "icon1.svg",
+      "content": "Mesajınızın özgün amacını koruyan hassas çeviri ve transkripsiyon dahil olmak üzere kapsamlı dilbilimsel çözümler aracılığıyla iletişim boşluklarını kapatıyoruz. Kelimenin gerçek anlamının ötesinde, yerelleştirme ve altyazı hizmetlerimiz içeriğinizi kültürel ve teknik olarak uyarlar, küresel kitlelerle derin bir şekilde yankılanmasını sağlar ve herhangi bir yerel pazarın belirli taleplerini karşılar."
+    },
+    {
+      "title": "Ses & Sesli Anlatım Hizmetleri",
+      "icon": "icon2.svg",
+      "content": "Ses paketimiz, ses tabanlı medya için yüksek kaliteli ses kaydından çeşitli görsel projeler için cilalı seslendirme üretimine kadar uçtan uca çözümler sunar. Ayrıca, ses transkripsiyonu ve anotasyonunda uzmanlaşarak, konuşulan kelimeleri yapılandırılmış verilere dönüştürürken hem yaratıcı projeleri hem de teknik analizi desteklemek için temel işitsel unsurları tanımlıyoruz."
+    },
+    {
+      "title": "İçerik Hizmetleri",
+      "icon": "icon3.svg",
+      "content": "Profesyonel senaryo yazımından yüksek etkili metin, görsel ve multimedya varlıklarının üretimine kadar tam spektrumlu yaratıcı içerik aracılığıyla marka katılımını artırıyoruz. Maksimum erişimi sağlamak için sosyal medya değerlendirmesi ve tam ölçekli yönetim sunuyoruz, dijital varlığınızı optimize ediyor ve tüm sosyal platformlarda tutarlı, ilgi çekici bir ses koruyoruz."
+    },
+    {
+      "title": "Veri Hizmetleri & Yapay Zeka Desteği",
+      "icon": "icon4.svg",
+      "content": "Yapay zeka için hazır veri çözümleri ve belirli müşteri ihtiyaçlarına göre özelleştirilmiş veri seti oluşturma sağlayarak teknolojinin geleceğini güçlendiriyoruz. Uzmanlığımız, video, ses, metin ve görüntü formatlarında titiz veri etiketleme ve anotasyonunu içerir ve veri bütünlüğü ve dilbilimsel doğruluğun en yüksek standartlarını sağlamak için profesyonel düzeltme ve düzenleme ile tamamlanır."
+    }
+  ]
+}

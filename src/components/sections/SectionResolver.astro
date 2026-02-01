@@ -8,21 +8,22 @@ interface Props {
   afterTitle: string,
   sect: CollectionEntry<'sections'>,
   title: string,
-  type: string
+  type: string,
+  lang?: string
 }
 
-const { afterTitle, sect, title, type } = Astro.props
+const { afterTitle, sect, title, type, lang } = Astro.props
 const { Content } = await sect.render()
 ---
 
-{type === 'about' && <About title={title}>
+{type === 'about' && <About title={title} lang={lang}>
   <Content />
 </About>}
 
-{type === 'features' && <Features afterTitle={afterTitle} title={title}>
+{type === 'features' && <Features afterTitle={afterTitle} title={title} lang={lang}>
   <Content />
 </Features>}
 
-{type === 'contact' && <Contact title={title}>
+{type === 'contact' && <Contact title={title} lang={lang}>
   <Content />
 </Contact>}

@@ -1,20 +1,21 @@
 ---
 interface Props {
   title: string
+  lang?: string
 }
 
 const site = Astro.site
-const { title } = Astro.props
+const { title, lang } = Astro.props
 ---
-<div id="about" class="w-full min-h-screen flex flex-col justify-center items-center py-12">
+<div id="about" class="w-full min-h-screen flex flex-col justify-center items-center py-12" style="background-color: #1f2937;" data-section-type="about">
   <div class="self-center text-center w-full sm:w-2/3 xl:w-1/2 px-4 sm:px-0">
-    <h2 class="font-bold tracking-wider text-gray-800 text-4xl mb-4">{title}</h2>
-    <div class="font-light text-black text-xl">
+    <h2 class="font-bold tracking-wider text-gray-200 text-4xl mb-4">{title}</h2>
+    <div class="font-light text-gray-400 text-xl" data-content>
       <slot />
     </div>
     <img class="my-12 max-w-full mx-auto" src={`${site}img/globe.svg`} alt="AWE.SOME">
   </div>
   <div class="flex flex-row w-full justify-center">
-    <a class="px-10 py-2 text-gray-800 rounded-full shadow-md text-lg hover:opacity-80 transition-opacity" href="#features" style="background-color: #f9ae19;">See How it Works</a>
+    <a class="px-10 py-2 text-gray-800 rounded-full shadow-md text-lg hover:opacity-80 transition-opacity" href="#features" data-i18n="btn.seeHow" style="background-color: #f9ae19;">See How it Works</a>
   </div>
 </div>

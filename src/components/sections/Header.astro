@@ -3,11 +3,11 @@ import Navbar from '../Navbar.astro'
 
 const site = Astro.site
 ---
-<header class="header w-full min-h-screen flex flex-col justify-between">
+<header class="header w-full min-h-screen flex flex-col justify-between" data-section-type="header">
   <Navbar />
   <div class="flex flex-col justify-center h-full py-12">
     <div class="self-center items-center flex flex-col sm:flex-row w-full md:w-5/6 xl:w-2/3 px-4 sm:px-0">
-      <div class="w-full text-center sm:text-left sm:w-1/2 py-12 sm:px-8">
+      <div class="w-full text-center sm:text-left sm:w-1/2 py-12 sm:px-8" data-content>
         <h1 class="tracking-wide text-2xl mb-6" style="color: #f9ae19;">
           To be a trusted, inclusive, and highly competitive company in our field,
         </h1>
@@ -21,7 +21,7 @@ const site = Astro.site
     </div>
   </div>
   <div class="flex flex-row w-full justify-center pb-12">
-    <a class="px-10 py-2 text-gray-800 rounded-full shadow-md text-lg hover:opacity-80 transition-opacity" href="#about" style="background-color: #f9ae19;">
+    <a class="px-10 py-2 text-gray-800 rounded-full shadow-md text-lg hover:opacity-80 transition-opacity" href="#about" data-i18n="btn.moreInfo" style="background-color: #f9ae19;">
       More Information
     </a>
   </div>
