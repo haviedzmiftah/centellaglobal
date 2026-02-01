@@ -1,91 +1,104 @@
-# astro-landing-page
-
-A simple landing page built with Astro and Tailwind CSS.
-
-[![preview](./preview.png)](https://awesomestro.ttntm.me)
-
-> Port of the [11ty](https://github.com/ttntm/11ty-landing-page) & [Hugo](https://github.com/ttntm/hugo-landing-page) versions
-
-## How to use this template
-
-**Requirements:**
-
-1. Astro (developed and tested with version 2.10.12)
-2. Tailwind CSS (Astro integration)
-
-All other dependencies are either linked from a CDN or included in this repository.
-
-**Setup:**
-
-1. Fork, clone or download
-2. `cd` into the root folder
-3. run `npm install`
-4. run `npm run dev`
-5. open a browser and go to `http://localhost:4321`
-
-**Setup Alternative:**
-
-`npm create astro@latest -- --template ttntm/astro-landing-page`
-
-See: [Starter Templates](https://docs.astro.build/en/install/auto/#starter-templates) in the official docs.
-
-**Basic configuration:**
-
-1. Astro -> `./astro.config.mjs`
-2. Tailwind -> `./tailwind.config.cjs`
-3. Netlify -> `./netlify.toml`
-
-CSS (in `./src/styles/`) is processed by Astro directly; this project is using the [Tailwind integration module](https://docs.astro.build/en/guides/integrations-guide/tailwind/).
-
-**Deployment:**
-
-Astro requires the final deployed URL in its config file.
-
-Replace the placeholder with your site's URL and keep the trailing slash:
-
-```js
-case 'production':
-  build.siteURL = 'https://example.com/'
-  break
-```
-
-**Change Content:**
-
-Page content is stored in
-
-- `./src/pages/`
-  - `imprint.md`
-  - `privacy.md`
-- `./src/content/sections/`
-- `./src/data/features.json`
-
 # PT Centella Global Corp — Website (Astro)
 
-This repository now contains an Astro-based company landing site for PT Centella Global Corp.
+Website perusahaan PT Centella Global Corp berbasis Astro + Tailwind CSS dengan dukungan multibahasa.
 
-Quick start (local):
+## Kredit & Asal Template
 
-```bash
-npm ci
-npm run dev
-```
+Proyek ini berasal dari template **astro-landing-page** oleh **ttntm** dan telah dimodifikasi secara signifikan.
 
-Open http://localhost:4321 to preview.
+- Template asli: https://github.com/ttntm/astro-landing-page
+- Port dari: https://github.com/ttntm/11ty-landing-page dan https://github.com/ttntm/hugo-landing-page
 
-Build for production:
+Kredit kepada pembuat asli tetap dipertahankan.
 
-```bash
-npm run build
-```
+## Ringkasan Fitur
 
-The build output will be in `./dist/` and the included GitHub Actions workflow will deploy `./dist/` to the `gh-pages` branch.
+- Multibahasa: ID / EN / TR
+- Konten Markdown untuk About & Contact
+- Data fitur dari JSON
+- SEO otomatis (robots.txt & sitemap.xml mengikuti domain)
+- Security headers dasar
+- Build statis untuk GitHub Pages
 
-Notes:
-- Move the existing logo into `public/centella.jpeg` (or update paths) so Astro serves the image at `/centella.jpeg`. Currently the site references `/assets/files/centella.jpeg` — you can keep it there but ensure the path is valid for the final build.
-- If you want to remove the old Jekyll files, they are archived in `jekyll-archive/`.
+## Prasyarat
 
-Contact & business info are in `src/content/sections/register.md` and site metadata is in `src/data/site.json`.
+- Node.js LTS (v18+ disarankan)
+- npm
 
-Deployment on GitHub Pages: the workflow `.github/workflows/deploy.yml` builds and deploys to the `gh-pages` branch when pushing to `main`.
+## Instalasi
 
-If you want I can run `npm ci` and `npm run build` now to verify the build artifacts.
+1. Clone repository
+2. Jalankan:
+   - `npm install`
+
+## Menjalankan Lokal
+
+- Dev:
+  - `npm run dev`
+- Preview build:
+  - `npm run build`
+  - `npm run preview`
+
+## Struktur Proyek (Inti)
+
+- [src/pages/index.astro](src/pages/index.astro) — Halaman utama
+- [src/components/sections/](src/components/sections/) — Section UI
+- [src/content/sections/](src/content/sections/) — Konten Markdown multibahasa
+- [src/data/features.json](src/data/features.json) — Data fitur multibahasa
+- [src/components/JS.astro](src/components/JS.astro) — Logika switching bahasa & fetch konten
+- [scripts/generate-seo.mjs](scripts/generate-seo.mjs) — Generate robots.txt & sitemap.xml otomatis
+
+## Konten & Bahasa
+
+### Markdown
+- About:
+  - [src/content/sections/about.md](src/content/sections/about.md)
+  - [src/content/sections/about.id.md](src/content/sections/about.id.md)
+  - [src/content/sections/about.tr.md](src/content/sections/about.tr.md)
+- Contact:
+  - [src/content/sections/contact.md](src/content/sections/contact.md)
+  - [src/content/sections/contact.id.md](src/content/sections/contact.id.md)
+  - [src/content/sections/contact.tr.md](src/content/sections/contact.tr.md)
+
+### Features JSON
+- [src/data/features.json](src/data/features.json)
+  - Key bahasa: `en`, `id`, `tr`
+
+### Bahasa Default
+- [src/data/site.json](src/data/site.json) → `language`
+
+## SEO (Otomatis Ikut Domain)
+
+- `robots.txt` dan `sitemap.xml` digenerate otomatis saat build.
+- Domain sumbernya dari `site` di [astro.config.mjs](astro.config.mjs).
+
+Script:
+- `npm run generate-seo`
+- Sudah dijalankan otomatis saat `npm run build` dan `npm run build-ghp`.
+
+## Build & Deploy
+
+### Production (custom domain)
+- Set `site` di [astro.config.mjs](astro.config.mjs) pada `production`.
+- Jalankan:
+  - `npm run build`
+
+### GitHub Pages
+- Set `NODE_ENV=pages` (sudah di script)
+- Jalankan:
+  - `npm run build-ghp`
+
+## Keamanan
+
+- API menggunakan whitelist validation
+- Proteksi path traversal
+- Security headers dasar di [public/_headers](public/_headers)
+
+## Catatan
+
+- Asset logo: [public/centella.jpeg](public/centella.jpeg)
+- Favicon: [public/img/favicon.svg](public/img/favicon.svg)
+
+## Lisensi
+
+Mengikuti lisensi proyek asli (MIT). Kredit pembuat tetap dipertahankan.

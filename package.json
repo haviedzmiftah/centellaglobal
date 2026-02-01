@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=dev astro dev",
     "start": "cross-env NODE_ENV=dev astro dev",
-    "build": "cross-env NODE_ENV=production astro build",
-    "build-ghp": "cross-env NODE_ENV=pages astro build",
+    "generate-seo": "node scripts/generate-seo.mjs",
+    "build": "cross-env NODE_ENV=production node scripts/generate-seo.mjs && cross-env NODE_ENV=production astro build",
+    "build-ghp": "cross-env NODE_ENV=pages node scripts/generate-seo.mjs && cross-env NODE_ENV=pages astro build",
     "preview": "astro preview"
   },
   "keywords": [],
