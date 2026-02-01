@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content'
 import About from './About.astro'
 import Features from './Features.astro'
 import Contact from './Contact.astro'
+import Operations from './Operations.astro'
 
 interface Props {
   afterTitle: string,
@@ -23,6 +24,10 @@ const { Content } = await sect.render()
 {type === 'features' && <Features afterTitle={afterTitle} title={title} lang={lang}>
   <Content />
 </Features>}
+
+{type === 'operations' && <Operations title={title} lang={lang}>
+  <Content />
+</Operations>}
 
 {type === 'contact' && <Contact title={title} lang={lang}>
   <Content />

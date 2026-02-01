@@ -14,7 +14,7 @@ const sections = allSections.filter(sect => {
 
 // Sort sections agar tertampil dengan urutan yang konsisten
 sections.sort((a, b) => {
-  const order = ['header', 'about', 'features', 'contact']
+  const order = ['header', 'about', 'features', 'operations', 'contact']
   return order.indexOf(a.data.type) - order.indexOf(b.data.type)
 })
 ---

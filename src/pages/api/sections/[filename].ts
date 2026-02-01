@@ -12,6 +12,7 @@ export async function GET({ params }: any) {
     'contact.md', 'contact.id.md', 'contact.tr.md',
     'features.md', 'features.id.md', 'features.tr.md',
     'header.md', 'header.id.md', 'header.tr.md',
+    'operations.md', 'operations.id.md', 'operations.tr.md',
   ]
   
   if (!allowedFiles.includes(filename)) {
@@ -44,7 +45,7 @@ export async function GET({ params }: any) {
 }
 
 export function getStaticPaths() {
-  const sections = ['about', 'contact', 'features', 'header']
+  const sections = ['about', 'contact', 'features', 'header', 'operations']
   const languages = ['id', 'tr']
   
   const paths = []
