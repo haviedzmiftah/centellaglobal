@@ -37,4 +37,73 @@
     placement: 'bottom',
     interactive: true
   })
+
+  const translations = {
+    id: {
+      'nav.lang': 'Bahasa',
+      'nav.about': 'Tentang',
+      'nav.features': 'Layanan',
+      'nav.follow': 'Ikuti',
+      'nav.contact': 'Hubungi'
+    },
+    en: {
+      'nav.lang': 'Language',
+      'nav.about': 'About',
+      'nav.features': 'Features',
+      'nav.follow': 'Follow',
+      'nav.contact': 'Contact Now'
+    },
+    tr: {
+      'nav.lang': 'Dil',
+      'nav.about': 'Hakkımızda',
+      'nav.features': 'Hizmetler',
+      'nav.follow': 'Takip Et',
+      'nav.contact': 'İletişim'
+    }
+  }
+
+  function applyTranslations(lang) {
+    const dict = translations[lang] || translations.en
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n')
+      if (key && dict[key]) {
+        el.textContent = dict[key]
+      }
+    })
+  }
+
+  function setLangActiveState(lang, buttons) {
+    buttons.forEach((btn) => {
+      const isActive = btn.getAttribute('data-lang') === lang
+      btn.setAttribute('aria-pressed', String(isActive))
+      btn.style.backgroundColor = isActive ? '#1f2937' : 'transparent'
+      btn.style.color = isActive ? '#ffffff' : '#1f2937'
+      btn.style.borderColor = '#1f2937'
+    })
+  }
+
+  function setLanguage(lang) {
+    localStorage.setItem('lang', lang)
+    document.documentElement.lang = lang
+    document.body.setAttribute('data-lang', lang)
+    applyTranslations(lang)
+  }
+
+  const langButtons = Array.from(document.querySelectorAll('[data-lang]'))
+  if (langButtons.length) {
+    const stored = localStorage.getItem('lang')
+    const browser = (navigator.language || 'en').slice(0, 2)
+    const initial = stored || (['id', 'en', 'tr'].includes(browser) ? browser : 'en')
+
+    setLanguage(initial)
+    setLangActiveState(initial, langButtons)
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang') || 'en'
+        setLanguage(lang)
+        setLangActiveState(lang, langButtons)
+      })
+    })
+  }
 </script>

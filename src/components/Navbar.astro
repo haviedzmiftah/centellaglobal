@@ -25,12 +25,18 @@ const contactLink = isHome
     </button>
   </div>
   <div id="menu" class="w-full sm:w-auto self-end sm:self-center hidden sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0">
-    <a class="text-gray-800 font-bold text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href={abtLink} style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">About</a>
-    <a class="text-gray-800 font-bold text-lg text-center w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1" href={ftLink} style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">Features</a>
-    <span id="follow" class="hidden sm:inline-block text-gray-800 font-bold text-lg sm:w-auto sm:px-4 sm:py-1 cursor-pointer" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">Follow</span>
+    <a class="text-gray-800 font-bold text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href={abtLink} data-i18n="nav.about" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">About</a>
+    <a class="text-gray-800 font-bold text-lg text-center w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1" href={ftLink} data-i18n="nav.features" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">Features</a>
+    <span id="follow" class="hidden sm:inline-block text-gray-800 font-bold text-lg sm:w-auto sm:px-4 sm:py-1 cursor-pointer" data-i18n="nav.follow" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">Follow</span>
+    <div class="flex flex-row items-center gap-2 sm:ml-2">
+      <span class="text-gray-800 text-xs font-bold" data-i18n="nav.lang">Language</span>
+      <button type="button" class="lang-btn text-xs font-bold border px-2 py-1 rounded" data-lang="id" aria-pressed="false" style="border-color: #1f2937; color: #1f2937; transition: all 0.2s;">ID</button>
+      <button type="button" class="lang-btn text-xs font-bold border px-2 py-1 rounded" data-lang="en" aria-pressed="false" style="border-color: #1f2937; color: #1f2937; transition: all 0.2s;">EN</button>
+      <button type="button" class="lang-btn text-xs font-bold border px-2 py-1 rounded" data-lang="tr" aria-pressed="false" style="border-color: #1f2937; color: #1f2937; transition: all 0.2s;">TR</button>
+    </div>
     {siteData.social.map((scm) => (
       <a href={scm.url} class="text-gray-800 font-bold text-lg text-center w-full no-underline sm:hidden py-2" target="_blank" rel="noopener" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">{scm.title}</a>
     ))}
-    <a class="text-gray-800 border text-lg bg-gray-100 rounded-full w-auto no-underline text-center sm:text-left hover:shadow-md px-6 py-1 my-2 sm:my-0 sm:ml-4" href={contactLink} style="border-color: #1f2937; transition: all 0.3s;" onmouseover="this.style.borderColor='#f9ae19'; this.style.color='#f9ae19'; this.style.backgroundColor='white'" onmouseout="this.style.borderColor='#1f2937'; this.style.color='#1f2937'; this.style.backgroundColor='#f3f4f6'">Contact Now</a>
+    <a class="text-gray-800 border text-lg bg-gray-100 rounded-full w-auto no-underline text-center sm:text-left hover:shadow-md px-6 py-1 my-2 sm:my-0 sm:ml-4" href={contactLink} data-i18n="nav.contact" style="border-color: #1f2937; transition: all 0.3s;" onmouseover="this.style.borderColor='#f9ae19'; this.style.color='#f9ae19'; this.style.backgroundColor='white'" onmouseout="this.style.borderColor='#1f2937'; this.style.color='#1f2937'; this.style.backgroundColor='#f3f4f6'">Contact Now</a>
   </div>
 </nav>
