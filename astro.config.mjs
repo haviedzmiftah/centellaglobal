@@ -1,25 +1,27 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 
-// default (local dev)
-const build = {
+// default: development (local)
+const config = {
+  site: 'http://localhost:4321',
   base: '/',
   outDir: 'dist',
-  site: 'http://localhost:4321',
 }
 
-// ENV
+// environment switch
 const env = process.env.NODE_ENV
 
 switch (env) {
   case 'pages':
-    build.base = '/centellaglobal/'
-    build.site = 'https://haviedzmiftah.github.io'
+    // GitHub Pages
+    config.site = 'https://hafidmiftah.my.id/centellaglobal/'
+    config.base = '/centellaglobal/'
     break
 
   case 'production':
-    build.base = '/'
-    build.site = 'https://centella-global.com'
+    // Custom domain (future)
+    config.site = 'https://centella-global.com'
+    config.base = '/'
     break
 
   default:
@@ -28,9 +30,9 @@ switch (env) {
 }
 
 export default defineConfig({
-  site: build.site,
-  base: build.base,
-  outDir: build.outDir,
+  site: config.site,
+  base: config.base,
+  outDir: config.outDir,
   integrations: [
     tailwind({
       applyBaseStyles: false,
