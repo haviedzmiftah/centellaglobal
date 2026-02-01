@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content'
 import About from './About.astro'
 import Features from './Features.astro'
-import Register from './Register.astro'
+import Contact from './Contact.astro'
 
 interface Props {
   afterTitle: string,
@@ -23,6 +23,6 @@ const { Content } = await sect.render()
   <Content />
 </Features>}
 
-{type === 'register' && <Register title={title}>
+{type === 'contact' && <Contact title={title}>
   <Content />
-</Register>}
+</Contact>}

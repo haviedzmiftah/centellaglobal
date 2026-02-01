@@ -10,9 +10,9 @@ const abtLink = isHome
 const ftLink = isHome
   ? '#features'
   : `${site}#features`
-const regLink = isHome
-  ? '#register'
-  : `${site}#register`
+const contactLink = isHome
+  ? '#contact'
+  : `${site}#contact`
 ---
 <nav class="flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white sm:bg-transparent shadow sm:shadow-none">
   <div class="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
@@ -31,6 +31,6 @@ const regLink = isHome
     {siteData.social.map((scm) => (
       <a href={scm.url} class="text-gray-800 font-bold text-lg text-center w-full no-underline sm:hidden py-2" target="_blank" rel="noopener" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#1f2937'">{scm.title}</a>
     ))}
-    <a class="text-gray-800 border text-lg bg-gray-100 rounded-full w-auto no-underline text-center sm:text-left hover:shadow-md px-6 py-1 my-2 sm:my-0 sm:ml-4" href={regLink} style="border-color: #1f2937; transition: all 0.3s;" onmouseover="this.style.borderColor='#f9ae19'; this.style.color='#f9ae19'; this.style.backgroundColor='white'" onmouseout="this.style.borderColor='#1f2937'; this.style.color='#1f2937'; this.style.backgroundColor='#f3f4f6'">Contact Now</a>
+    <a class="text-gray-800 border text-lg bg-gray-100 rounded-full w-auto no-underline text-center sm:text-left hover:shadow-md px-6 py-1 my-2 sm:my-0 sm:ml-4" href={contactLink} style="border-color: #1f2937; transition: all 0.3s;" onmouseover="this.style.borderColor='#f9ae19'; this.style.color='#f9ae19'; this.style.backgroundColor='white'" onmouseout="this.style.borderColor='#1f2937'; this.style.color='#1f2937'; this.style.backgroundColor='#f3f4f6'">Contact Now</a>
   </div>
 </nav>
