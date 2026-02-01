@@ -31,6 +31,10 @@ jobs:
       - name: Build site (GitHub Pages mode)
         run: npm run build-ghp
 
+      - name: Ensure .nojekyll in dist
+        run: |
+          if [ -f .nojekyll ]; then cp .nojekyll dist/.nojekyll; else echo ".nojekyll not found"; fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
