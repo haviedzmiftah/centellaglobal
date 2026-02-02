@@ -1,5 +1,7 @@
 ---
+
 import siteData from '../data/site.json'
+import contacts from '../data/contacts.json'
 
 const pn = Astro.url.pathname
 const isHome = pn === '/'
@@ -12,35 +14,50 @@ const ftLink = isHome
   : `${site}#features`
 const currentYear = new Date().getFullYear()
 ---
-<footer class="w-full flex flex-col sm:flex-row sm:justify-center text-lg tracking-wide px-4 sm:px-0 py-16" style="background-color: #1f2937;">
-  <div class="text-center pr-0 sm:pr-8 py-4">
-    <ul class="list-none">
-      {siteData.social.map((scm) => (
-        <li>
-          <a class="text-gray-200 no-underline" href={scm.url} target="_blank" rel="_noopener" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#e5e7eb'">{scm.title}</a>
+<footer class="w-full flex flex-col sm:flex-row justify-between items-start text-lg tracking-wide px-4 sm:px-12 py-12 gap-8" style="background-color: #1f2937;">
+  <!-- Left: Logo & Address -->
+  <div class="flex-1 flex flex-col items-center sm:items-start mb-8 sm:mb-0">
+    <a href={site} class="block mb-4">
+      <img src={`${site}img/logocnt2.svg`} alt="Centella Global Logo" class="h-20" style="max-width:200px;" />
+    </a>
+    <div class="text-gray-300 text-sm leading-relaxed text-center sm:text-left">
+      PT Centella Global Corp<br />Jl. Bhayangkara, BTN Pinang Merah, Block C8 No.10<br />Kalimantan, Indonesia
+    </div>
+  </div>
+
+  <!-- Middle: Kontak -->
+  <div class="flex-1 flex flex-col items-center sm:items-start mb-8 sm:mb-0">
+    <div class="font-bold text-gray-200 mb-2 text-base">Contact</div>
+    <ul class="list-none space-y-2 text-sm">
+      {contacts.map((c) => (
+        <li class="flex items-center gap-2">
+          {c.icon && <img src={`${site}img/${c.icon}`} alt={c.label} class="w-5 h-5 inline-block" />}
+          {c.url ? (
+            <a href={c.url} class="text-gray-200 hover:text-yellow-500 no-underline" target="_blank" rel="noopener">{c.value}</a>
+          ) : (
+            <span class="text-gray-200">{c.value}</span>
+          )}
         </li>
       ))}
     </ul>
   </div>
-  <div class="h-px sm:h-auto w-1/2 sm:w-px mx-auto sm:mx-0" style="background-color: #f9ae19;"></div>
-  <div class="text-center px-8 py-4">
-    <ul class="list-none">
-      <li>
-        <a class="text-gray-200 no-underline" href={abtLink} data-i18n="nav.about" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#e5e7eb'">About</a>
-      </li>
-      <li>
-        <a class="text-gray-200 no-underline" href={ftLink} data-i18n="nav.features" style="transition: color 0.3s;" onmouseover="this.style.color='#f9ae19'" onmouseout="this.style.color='#e5e7eb'">Features</a>
-      </li>
-    </ul>
+
+  <!-- Right: Social Media (icon only) -->
+  <div class="flex-1 flex flex-col items-center sm:items-end">
+    <div class="font-bold text-gray-200 mb-2 text-base">Social Media</div>
+    <div class="flex flex-row flex-wrap gap-4 justify-center sm:justify-end items-center w-full">
+      {siteData.social.map((scm) => (
+        <a href={scm.url} target="_blank" rel="noopener" class="block" style="line-height:0;">
+          <img src={`${site}img/${scm.title.toLowerCase()}.svg`} alt={scm.title} class="w-8 h-8 sm:w-10 sm:h-10 object-contain" style="min-width:2rem; min-height:2rem; max-width:2.5rem; max-height:2.5rem;" onerror="this.style.display='none'" />
+        </a>
+      ))}
+    </div>
   </div>
-  
 </footer>
 <div class="w-full" style="background-color: #1f2937;">
   <span class="block text-center text-gray-200 text-sm font-light pb-4">
     &copy; {currentYear} {siteData.author}
   </span>
-</div>
-<div class="">
   <a id="btt" class="hidden fixed bottom-0 right-0 mb-4 mr-4 text-gray-200 border hover:bg-gray-200 hover:border-browngray no-underline px-6 py-1 shadow-md" href="#top" title="Back to Top" style="border-color: #f9ae19; background-color: #f9ae19;" onmouseover="this.style.backgroundColor='transparent'; this.style.color='#f9ae19'" onmouseout="this.style.backgroundColor='#f9ae19'; this.style.color='#1f2937'">UP</a>
 </div>
 <!-- "Follow" Tooltip template -->

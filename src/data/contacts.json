@@ -1,0 +1,22 @@
+[
+  {
+    "type": "email",
+    "icon": "email.svg",
+    "label": "Email",
+    "value": "centella.global@gmail.com",
+    "url": "mailto:centella.global@gmail.com"
+  },
+  {
+    "type": "phone",
+    "icon": "phone.svg",
+    "label": "Phone",
+    "value": "+62812-8800-4014",
+    "url": "https://wa.me/+6281288004014"
+  },
+  {
+    "type": "address",
+    "icon": "map.svg",
+    "label": "Office",
+    "value": "Jl. Bhayangkara, BTN Pinang Merah, Block C8 No.10, RT007, Pasir Panjang, Arut Selatan District, Kotawaringin Barat Regency, Central Kalimantan - Indonesia"
+  }
+]
