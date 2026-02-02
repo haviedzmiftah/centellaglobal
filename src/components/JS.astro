@@ -162,7 +162,18 @@ const baseUrl = import.meta.env.BASE_URL;
           const markdown = await response.text()
           // Parse frontmatter - content setelah --- kedua
           const parts = markdown.split('---')
+          const frontmatter = parts[1] ? parts[1].trim() : ''
           const content = parts[2] ? parts[2].trim() : ''
+          
+          // Extract title from frontmatter
+          const titleMatch = frontmatter.match(/^title:\s*(.+)$/m)
+          const title = titleMatch ? titleMatch[1].trim() : ''
+          
+          // Update section title if exists
+          const titleEl = section.querySelector('[data-section-title]')
+          if (titleEl && title) {
+            titleEl.textContent = title
+          }
           
           console.log(`Loaded content for ${sectionType}: ${content.substring(0, 50)}...`)
           

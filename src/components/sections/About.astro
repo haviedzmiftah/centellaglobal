@@ -9,7 +9,7 @@ const { title, lang } = Astro.props
 ---
 <div id="about" class="w-full min-h-screen flex flex-col justify-center items-center py-12" style="background-color: #1f2937;" data-section-type="about">
   <div class="self-center text-center w-full sm:w-2/3 xl:w-1/2 px-4 sm:px-0">
-    <h2 class="font-bold tracking-wider text-gray-200 text-4xl mb-4">{title}</h2>
+    <h2 class="font-bold tracking-wider text-gray-200 text-4xl mb-4" data-section-title>{title}</h2>
     <div class="font-light text-gray-400 text-xl" data-content>
       <slot />
     </div>
