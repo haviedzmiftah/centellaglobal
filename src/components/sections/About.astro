@@ -13,7 +13,7 @@ const { title, lang } = Astro.props
     <div class="font-light text-gray-400 text-xl" data-content>
       <slot />
     </div>
-    <img class="my-12 max-w-full mx-auto" src="/img/globe.svg" alt="AWE.SOME">
+    <img class="my-12 max-w-full mx-auto" src={`${site}img/globe.svg`} alt="AWE.SOME">
   </div>
   <div class="flex flex-row w-full justify-center">
     <a class="px-10 py-2 text-gray-800 rounded-full shadow-md text-lg hover:opacity-80 transition-opacity" href="#features" data-i18n="btn.seeHow" style="background-color: #f9ae19;">See How it Works</a>
