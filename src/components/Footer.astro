@@ -47,8 +47,8 @@ const currentYear = new Date().getFullYear()
     <div class="font-bold text-gray-200 mb-2 text-base">Social Media</div>
     <div class="flex flex-row flex-wrap gap-4 justify-center sm:justify-end items-center w-full">
       {siteData.social.map((scm) => (
-        <a href={scm.url} target="_blank" rel="noopener" class="block" style="line-height:0;">
-          <img src={`${site}img/${scm.title.toLowerCase()}.svg`} alt={scm.title} class="w-8 h-8 sm:w-10 sm:h-10 object-contain" style="min-width:2rem; min-height:2rem; max-width:2.5rem; max-height:2.5rem;" onerror="this.style.display='none'" />
+        <a href={scm.url} target="_blank" rel="noopener" class="block group" style="line-height:0;">
+          <img src={`${site}img/${scm.title.toLowerCase()}.svg`} alt={scm.title} class="w-8 h-8 sm:w-10 sm:h-10 object-contain transition duration-200 group-hover:filter-orange" style="min-width:2rem; min-height:2rem; max-width:2.5rem; max-height:2.5rem;" onerror="this.style.display='none'" />
         </a>
       ))}
     </div>
@@ -56,8 +56,7 @@ const currentYear = new Date().getFullYear()
 </footer>
 <div class="w-full" style="background-color: #1f2937;">
   <span class="block text-center text-gray-200 text-sm font-light pb-4">
-    <!-- &copy; {currentYear} {siteData.author} -->
-     &copy; {currentYear} Design by Haviedz Miftah.
+    &copy; {currentYear} {siteData.author}
   </span>
   <a id="btt" class="hidden fixed bottom-0 right-0 mb-4 mr-4 text-gray-200 border hover:bg-gray-200 hover:border-browngray no-underline px-6 py-1 shadow-md" href="#top" title="Back to Top" style="border-color: #f9ae19; background-color: #f9ae19;" onmouseover="this.style.backgroundColor='transparent'; this.style.color='#f9ae19'" onmouseout="this.style.backgroundColor='#f9ae19'; this.style.color='#1f2937'">UP</a>
 </div>

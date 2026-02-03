@@ -38,6 +38,12 @@ html {
   transition: all 0.25s;
 }
 
+/* Custom filter for orange hover on social icons */
+.group:hover .group-hover\:filter-orange {
+  filter: brightness(0) saturate(100%) invert(77%) sepia(80%) saturate(1200%) hue-rotate(-20deg) brightness(1.1);
+  transition: filter 0.2s;
+}
+
 .hamburger__top-bun,
 .hamburger__bottom-bun {
   content: "";
