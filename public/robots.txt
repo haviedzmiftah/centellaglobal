@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://hafidmiftah.my.id/centellaglobal/sitemap.xml
+Sitemap: https://www.centellaglobal.id/sitemap.xml
 
 User-agent: CCBot
 Disallow: /
