@@ -20,7 +20,7 @@ switch (env) {
 
   case 'production':
     // Custom domain (future)
-    config.site = 'https://centella-global.com'
+    config.site = 'https://www.centellaglobal.id'
     config.base = '/'
     break
 
